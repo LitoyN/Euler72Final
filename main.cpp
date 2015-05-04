@@ -69,7 +69,7 @@ int phi(int number){
                 //printArray(array, numberSR + 1);
                 //cout << phiValue << endl;
                 phiValue = phiValue * (1-(1/(float)primes[i]));
-                cout << number << " 1/" << primes[i] << " " << phiValue << endl;
+                cout << number << " " << primes[i]-1 << "/" << primes[i] << " " << phiValue << endl;
             }
 
     }
