@@ -15,8 +15,7 @@ using namespace std;
 
 unsigned long long int rpfCounter = 0;
 int primeCounter;
-int *phiValue = new int;
-int *numberSR = new int;
+
 int *primes = new int[78500];
 
 /**
@@ -43,6 +42,7 @@ void primeSieve(int upperBound) {
                   primeCounter++;
             }
       delete [] isComposite;
+
       cout << endl << "Number of Primes: " << primeCounter << endl;
 
 }
@@ -59,17 +59,17 @@ void printArray(bool* array, int size){
 
 int phi(int number){
     
-    int phiValue = number;
-    int numberSR = ceil(sqrt(number));
+    float phiValue = number;
+    int numberSR = (int)ceil(sqrt(number));
 
-    for(int i = 0; primes[i] <= numberSR; i++){
+    for(int i = 0; (i<primeCounter)&&(primes[i] <= number); i++){
             if(number % primes[i] == 0){
                 //cout << i << endl;
 
                 //printArray(array, numberSR + 1);
                 //cout << phiValue << endl;
                 phiValue = phiValue * (1-(1/(float)primes[i]));
-                cout << number << " " << primes[i]-1 << "/" << primes[i] << " " << phiValue << endl;
+                //cout << number << " " << primes[i]-1 << "/" << primes[i] << " " << phiValue << endl;
             }
 
     }
@@ -91,7 +91,7 @@ int phi(int number){
  */
 int main(int argc, char** argv) {
     
-    int long upperLimit = 13;
+    int upperLimit = 1000000;
     
     primeSieve(upperLimit);
     
